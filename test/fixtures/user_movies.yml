@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  movie: 
+  from_date: 2013-02-04
+  to_date: 2013-02-04
+  active: false
+  can_download: false
+
+two:
+  user: 
+  movie: 
+  from_date: 2013-02-04
+  to_date: 2013-02-04
+  active: false
+  can_download: false

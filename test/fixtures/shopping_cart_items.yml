@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  shopping_cart: 
+  movie: 
+  download: false
+  price: 1.5
+
+two:
+  shopping_cart: 
+  movie: 
+  download: false
+  price: 1.5

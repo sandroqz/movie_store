@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  open_date: 2013-02-04
+  close_date: 2013-02-04
+  total_value: 1.5
+
+two:
+  user: 
+  open_date: 2013-02-04
+  close_date: 2013-02-04
+  total_value: 1.5
