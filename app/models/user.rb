@@ -1,14 +1,9 @@
+require File.join(Rails.root, 'lib', 'can_download.rb')
+
 class User < ActiveRecord::Base
   has_many :shopping_carts
   has_many :user_movies
-  has_many :movies, through: :user_movies do
-    def streamable
-      where("user_movies.can_download=?", false)
-    end
-    def downloadable
-      where("user_movies.can_download=?", true)
-    end
-  end
+  has_many :movies, through: :user_movies, extend: CanDownload
 
   has_secure_password
 
