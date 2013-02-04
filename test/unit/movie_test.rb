@@ -12,6 +12,11 @@ class MovieTest < ActiveSupport::TestCase
   test "should have know who already own the movie" do
     assert_equal 2, @movie1.owners.size, "should have 2 owners"
   end
+  test "should list the users that cannot download this movie" do
+    streamable = @movie1.owners.streamable
+    assert_includes streamable, @user2
+    refute_includes streamable, @user1
+  end
   test "should list the users who already own the movie" do
     streamable = @movie1.owners.streamable
     assert_includes streamable, @user2
