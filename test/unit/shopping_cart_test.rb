@@ -39,4 +39,12 @@ class ShoppingCartTest < ActiveSupport::TestCase
     assert @movie1.can_be_downloaded_by?(@user1)
     refute @movie1.can_be_downloaded_by?(@user2)
   end
+  test "cart total value should reflect the items it contain" do
+    cart = @user1.start_shopping
+    cart.add_item @movie1, true
+    it2 = cart.add_item @movie2, false
+    assert_equal @movie1.download_price + @movie2.stream_price, cart.total_value
+    cart.shopping_cart_items.delete(it2)
+    assert_equal @movie1.download_price, cart.total_value
+  end
 end
