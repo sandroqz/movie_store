@@ -9,10 +9,20 @@ class MovieTest < ActiveSupport::TestCase
     @movie1.user_movies.create user: @user1, active: true, can_download: true
     @movie1.user_movies.create user: @user2, active: true, can_download: false
   end
-  test "should have known who already own the movie" do
+  test "should have know who already own the movie" do
     assert_equal 2, @movie1.owners.size, "should have 2 owners"
   end
-  test "should have known if one user can download the movie" do
+  test "should list the users who already own the movie" do
+    streamable = @movie1.owners.streamable
+    assert_includes streamable, @user2
+    refute_includes streamable, @user1
+  end
+  test "should list the users that can download this movie" do
+    downloadable = @movie1.owners.downloadable
+    assert_includes downloadable, @user1
+    refute_includes downloadable, @user2
+  end
+  test "should have know if one user can download the movie" do
     assert @movie1.can_be_downloaded_by?(@user1), "can be downloaded by user 1"
     assert !@movie1.can_be_downloaded_by?(@user2), "cannot be downloaded by user 2"
     assert !@movie2.can_be_downloaded_by?(@user1), "cannot be downloaded by user 1"
