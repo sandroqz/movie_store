@@ -43,22 +43,22 @@ class MovieTest < ActiveSupport::TestCase
   end
   test "prices should be a number" do
     @movie = Movie.create name: "Movie 1", file_name: "http://localhost/movie1.mov", preview_file_name: "http://localhost/movie1_sample.mov", stream_price: "a", download_price: "b", description: "Huge text explaining the movie"
-    assert @movie.erros[:stream_price].any?
-    assert @movie.erros[:download_price].any?
+    assert @movie.errors[:stream_price].any?
+    assert @movie.errors[:download_price].any?
     @movie.download_price = 1.5
     @movie.stream_price = 2
     @movie.save
-    assert @movie.erros[:stream_price].empty?
-    assert @movie.erros[:download_price].empty?
+    assert @movie.errors[:stream_price].empty?
+    assert @movie.errors[:download_price].empty?
   end
   test "file names should be an URL" do
     @movie = Movie.create name: "Movie 1", file_name: "a", preview_file_name: "a", stream_price: "a", download_price: "b", description: "Huge text explaining the movie"
-    assert @movie.erros[:file_name].any?, "File name is not an URL"
-    assert @movie.erros[:preview_file_name].any?, "Preview file name is not an URL"
+    assert @movie.errors[:file_name].any?, "File name is not an URL"
+    assert @movie.errors[:preview_file_name].any?, "Preview file name is not an URL"
     @movie.file_name = "http://localhost/teste"
     @movie.preview_file_name = "http://localhost/file.mov"
     @movie.save
-    assert @movie.erros[:file_name].empty?, "File name is a URL"
-    assert @movie.erros[:preview_file_name].empty?, "preview file name is a URL"
+    assert @movie.errors[:file_name].empty?, "File name is a URL"
+    assert @movie.errors[:preview_file_name].empty?, "preview file name is a URL"
   end
 end
