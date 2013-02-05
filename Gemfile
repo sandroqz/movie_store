@@ -34,7 +34,6 @@ group :development, :test do
   gem 'awesome_print'
   gem 'pry'
   gem 'pry-doc'
-  gem 'yard', '0.8.3'
 end
 
 group :test do
