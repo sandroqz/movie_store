@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: shopping_carts
+#
+#  id          :integer          not null, primary key
+#  user_id     :integer
+#  open_date   :date
+#  close_date  :date
+#  total_value :float
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
 class ShoppingCart < ActiveRecord::Base
   has_many :shopping_cart_items, before_add: Proc.new {|sc, item|
     item_value = if item.download

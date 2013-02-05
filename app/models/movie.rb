@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: movies
+#
+#  id                :integer          not null, primary key
+#  name              :string(255)
+#  file_name         :string(255)
+#  description       :text
+#  preview_file_name :string(255)
+#  stream_price      :float
+#  download_price    :float
+#  created_at        :datetime
+#  updated_at        :datetime
+#
+
 class Movie < ActiveRecord::Base
   has_many :user_movies
   has_many :owners, through: :user_movies, source: :user

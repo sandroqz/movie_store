@@ -29,6 +29,8 @@ GEM
       activesupport (= 3.1.1)
     activesupport (3.1.1)
       multi_json (~> 1.0)
+    annotate (2.5.0)
+      rake
     ansi (1.4.3)
     arel (2.2.3)
     awesome_print (1.1.0)
@@ -123,6 +125,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
   awesome_print
   bcrypt-ruby (~> 3.0.0)
   coffee-rails (~> 3.1.1)

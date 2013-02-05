@@ -34,6 +34,7 @@ group :development, :test do
   gem 'awesome_print'
   gem 'pry'
   gem 'pry-doc'
+  gem 'annotate'
 end
 
 group :test do
